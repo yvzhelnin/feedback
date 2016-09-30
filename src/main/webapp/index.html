@@ -3,9 +3,10 @@
     <head>
         <title>Форма обратной связи</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     </head>
     <body>
-        <form class="feedbackform" action="">
+        <form id="feedbackform">
         <h5>Форма обратной связи</h5>
         <input type="text" required="" placeholder="Фамилия" name="secondName">
         <input type="text" required="" placeholder="Имя" name="firstName">
@@ -17,8 +18,25 @@
             <option>Получатель 3</option>
         </select><br/><br/>
         <input type="text" required="" placeholder="Тема" name="topic"><br/><br/>
-        <textarea name="txtmessage" placeholder="Текст сообщения" rows="30"></textarea><br/>
-        <input type="submit" class="button" value="Отправить" name="sendfeedback">
+        <textarea name="message" placeholder="Текст сообщения" rows="10" cols="30"></textarea><br/>
+        <input type="submit" id="button" value="Отправить" name="sendfeedback">
         </form>
+        <div id="result"></div>
+        <script type="text/javascript">
+        $("#feedbackform").submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "send",
+                data: $(this).serialize(),
+                success: function() {
+                    var div = document.createElement("div");
+                    div.innerHTML = "<h5>Обратная связь успешно отправлена!</h5>";
+                    document.getElementById("result").appendChild(div);
+                    document.getElementById('feedbackform').reset();
+               }
+            });
+        });
+        </script>
     </body>
 </html>
