@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Форма обратной связи</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <form class="feedbackform" action="">
+        <h5>Форма обратной связи</h5>
+        <input type="text" required="" placeholder="Фамилия" name="secondName">
+        <input type="text" required="" placeholder="Имя" name="firstName">
+        <input type="text" required="" placeholder="Отчетсво" name="patronymic"><br/><br/>
+        <select size="1" name="recipient">
+            <option selected>Выберите получателя из списка</option>
+            <option>Получатель 1</option>
+            <option>Получатель 2</option>
+            <option>Получатель 3</option>
+        </select><br/><br/>
+        <input type="text" required="" placeholder="Тема" name="topic"><br/><br/>
+        <textarea name="txtmessage" placeholder="Текст сообщения" rows="30"></textarea><br/>
+        <input type="submit" class="button" value="Отправить" name="sendfeedback">
+        </form>
+    </body>
+</html>
