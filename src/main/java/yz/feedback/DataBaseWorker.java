@@ -24,9 +24,7 @@ public class DataBaseWorker {
                 Statement st = con.createStatement();
                 String createTableSQL = "CREATE TABLE FEEDBACKS("
                 + "FEEDBACK_ID BIGSERIAL,"
-                + "SECOND_NAME VARCHAR,"
-                + "FIRST_NAME VARCHAR,"
-                + "PATRONYMIC VARCHAR,"
+                + "FULL_NAME VARCHAR,"
                 + "RECIPIENT VARCHAR,"
                 + "TOPIC VARCHAR,"
                 + "MESSAGE VARCHAR"
@@ -45,8 +43,8 @@ public class DataBaseWorker {
             Connection con = getConnection();
             Statement st = con.createStatement();
 
-            String InsertSQL = "INSERT INTO FEEDBACKS (SECOND_NAME,FIRST_NAME,PATRONYMIC,RECIPIENT,TOPIC,MESSAGE) values('"
-                + secondName + "','" + firstName + "','" + patronymic + "','" + recipient + "','" + topic + "','" + message + "');";
+            String InsertSQL = "INSERT INTO FEEDBACKS (FULL_NAME,RECIPIENT,TOPIC,MESSAGE) values('"
+                + secondName + " " + firstName + " " + patronymic + "','" + recipient + "','" + topic + "','" + message + "');";
             
             st.executeUpdate(InsertSQL);
             st.close();
@@ -60,15 +58,13 @@ public class DataBaseWorker {
         try{
             Connection con = getConnection();
             Statement st = con.createStatement();
-            String getData = "SELECT SECOND_NAME,FIRST_NAME,PATRONYMIC,RECIPIENT,TOPIC,MESSAGE FROM FEEDBACKS";
+            String getData = "SELECT FULL_NAME,RECIPIENT,TOPIC,MESSAGE FROM FEEDBACKS";
             
             ResultSet resultSet = st.executeQuery(getData);
             
             while(resultSet.next()){
                 Feedback feedback = new Feedback();
-                feedback.setSecondName(resultSet.getString("SECOND_NAME"));
-                feedback.setFirstName(resultSet.getString("FIRST_NAME"));
-                feedback.setPatronymic(resultSet.getString("PATRONYMIC"));
+                feedback.setFullName(resultSet.getString("FULL_NAME"));
                 feedback.setRecipient(resultSet.getString("RECIPIENT"));
                 feedback.setTopic(resultSet.getString("TOPIC"));
                 feedback.setMessage(resultSet.getString("MESSAGE"));

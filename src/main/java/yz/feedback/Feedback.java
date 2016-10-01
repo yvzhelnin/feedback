@@ -2,9 +2,7 @@ package yz.feedback;
 
 public class Feedback {
     
-    private String secondName;
-    private String firstName;
-    private String patronymic;
+    private String fullName;
     private String recipient;
     private String topic;
     private String message;
@@ -12,28 +10,12 @@ public class Feedback {
     public Feedback() {
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getRecipient() {
@@ -62,7 +44,7 @@ public class Feedback {
     
     @Override
     public String toString(){
-        return "<tr><td>" + secondName + " "+ firstName + " "+ patronymic + "</td><td>"
-            + recipient + "</td><td>"+ topic + "</td><td>"+ message + "</td></tr>";
+        return "<tr><td>" + fullName + "</td><td>" + recipient + "</td><td>" +
+                topic + "</td><td>"+ message + "</td></tr>";
     }
 }
