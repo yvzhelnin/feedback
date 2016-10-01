@@ -20,12 +20,6 @@ public class SendController {
         
         DataBaseWorker.tableCreate();
         DataBaseWorker.bindData(secondName, firstName, patronymic, recipient, topic, message);
-        
-        System.out.println(secondName);
-        System.out.println(firstName);
-        System.out.println(patronymic);
-        System.out.println(recipient);
-        System.out.println(topic);
-        System.out.println(message);
+        DataBaseWorker.getData();
     }
 }
