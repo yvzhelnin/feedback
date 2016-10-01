@@ -1,11 +1,9 @@
 package yz.feedback;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class SendController {
@@ -19,6 +17,6 @@ public class SendController {
                         @RequestParam("message") String message){
         
         DataBaseWorker.tableCreate();
-        DataBaseWorker.bindData(secondName, firstName, patronymic, recipient, topic, message);
+        DataBaseWorker.bindFeedback(secondName, firstName, patronymic, recipient, topic, message);
     }
 }

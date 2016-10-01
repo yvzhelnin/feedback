@@ -38,7 +38,7 @@ public class DataBaseWorker {
             con.close();
         }catch(Exception se){}
     }
-    public static void bindData(String secondName, String firstName,
+    public static void bindFeedback(String secondName, String firstName,
                         String patronymic, String recipient,
                         String topic, String message){
         try{
@@ -53,7 +53,7 @@ public class DataBaseWorker {
             con.close();
         }catch(Exception se){}
     }
-    public static ArrayList<Feedback> getData(){
+    public static ArrayList<Feedback> getFeedback(){
         
         ArrayList<Feedback> feedbackList = new ArrayList<>();
         
@@ -76,9 +76,38 @@ public class DataBaseWorker {
             }
             st.close();
             con.close();
-            feedbackList.forEach(System.out::println);
+        //    feedbackList.forEach(System.out::println);
             return feedbackList;
         }catch(Exception se){}
         return feedbackList;
+    }
+    
+    public static ArrayList<Recipient> getRecipientName(){
+        
+        ArrayList<Recipient> recipientList = new ArrayList<>();
+        
+        try{
+            Connection con = getConnection();
+            Statement st = con.createStatement();
+            String getData = "SELECT RECIPIENT_ID,RECIPIENT_FULL_NAME FROM RECIPIENTS";
+            
+            ResultSet resultSet = st.executeQuery(getData);
+            
+            while(resultSet.next()){
+                Recipient recipient = new Recipient();
+                System.out.println("dwedewdew");
+                recipient.setRecipientId(resultSet.getInt("RECIPIENT_ID"));
+                recipient.setRecipientFullName(resultSet.getString("RECIPIENT_FULL_NAME"));
+                recipientList.add(recipient);
+                
+            }
+            st.close();
+            con.close();
+            
+            recipientList.forEach(System.out::println);
+            
+            return recipientList;
+        }catch(Exception se){}
+        return recipientList;
     }
 }

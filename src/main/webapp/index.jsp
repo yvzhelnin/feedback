@@ -1,7 +1,11 @@
-<html>
+<%@page contentType="text/html" %>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="yz.feedback.*"%>
+<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html><html>
     <head>
         <title>Форма обратной связи</title>
-        <%@ page contentType="text/html; charset=UTF-8" %>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     </head>
     <body>
@@ -12,9 +16,11 @@
         <input type="text" placeholder="Отчество" name="patronymic"><br/><br/>
         <select required size="1" name="recipient">
             <option selected disabled value=''>Выберите получателя</option>
-            <option value="0">Получатель 1</option>
-            <option value="1">Получатель 2</option>
-            <option value="2">Получатель 3</option>
+            <%  Iterator<Recipient> iterator = DataBaseWorker.getRecipientName().iterator();
+                while (iterator.hasNext()) {
+                    out.println(iterator.next());
+                }
+            %>
         </select><br/><br/>
         <input type="text" placeholder="Тема" name="topic"><br/><br/>
         <textarea name="message" required="" placeholder="Текст сообщения" rows="10" cols="30"></textarea><br/>

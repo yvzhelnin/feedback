@@ -6,14 +6,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Полученная обратная связь</title>
         <style>
         table {
-         border-spacing: 40px 5px; /* Расстояние между ячейками */ 
+         border-spacing: 40px 5px;
         }
         td {
-         padding: 5px; /* Поля вокруг текста */ 
+         padding: 5px;
         }
   </style>
     </head>
@@ -26,7 +25,7 @@
                 <td><h4>Тема сообщения</h4></td>
                 <td><h4>Сообщение</h4></td>
             </tr>
-            <%  Iterator<Feedback> iterator = DataBaseWorker.getData().iterator();
+            <%  Iterator<Feedback> iterator = DataBaseWorker.getFeedback().iterator();
                 while (iterator.hasNext()) {
                     out.println(iterator.next());
                 }
