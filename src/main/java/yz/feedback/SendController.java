@@ -12,11 +12,11 @@ public class SendController {
     public void sendFeedback(@RequestParam("secondName") String secondName,
                         @RequestParam("firstName") String firstName,
                         @RequestParam("patronymic") String patronymic,
-                        @RequestParam("recipient") String recipient,
+                        @RequestParam("recipient") int recipientId,
                         @RequestParam("topic") String topic,
                         @RequestParam("message") String message){
         
         DataBaseWorker.tableCreate();
-        DataBaseWorker.bindFeedback(secondName, firstName, patronymic, recipient, topic, message);
+        DataBaseWorker.bindFeedback(secondName, firstName, patronymic, recipientId, topic, message);
     }
 }

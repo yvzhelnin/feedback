@@ -3,7 +3,7 @@ package yz.feedback;
 public class Feedback {
     
     private String fullName;
-    private String recipient;
+    private int recipientId;
     private String topic;
     private String message;
 
@@ -18,14 +18,14 @@ public class Feedback {
         this.fullName = fullName;
     }
 
-    public String getRecipient() {
-        return recipient;
+    public int getFeedbackRecipientId() {
+        return recipientId;
     }
 
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
+    public void setFeedbackRecipientId(int recipientId) {
+        this.recipientId = recipientId;
     }
-
+    
     public String getTopic() {
         return topic;
     }
@@ -44,7 +44,7 @@ public class Feedback {
     
     @Override
     public String toString(){
-        return "<tr><td>" + fullName + "</td><td>" + recipient + "</td><td>" +
+        return "<tr><td>" + fullName + "</td><td>" + recipientId + "</td><td>" +
                 topic + "</td><td>"+ message + "</td></tr>";
     }
 }
