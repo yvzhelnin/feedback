@@ -58,16 +58,18 @@ public class DataBaseWorker {
         try{
             Connection con = getConnection();
             Statement st = con.createStatement();
-            String getData = "SELECT FULL_NAME,FEEDBACK_RECIPIENT_ID,TOPIC,MESSAGE FROM FEEDBACKS";
-            
+            String getData = "SELECT full_name,topic,message,recipient_full_name,recipient_email FROM feedbacks LEFT OUTER JOIN recipients ON (feedbacks.feedback_recipient_id=recipients.recipient_id);";
+
             ResultSet resultSet = st.executeQuery(getData);
             
             while(resultSet.next()){
                 Feedback feedback = new Feedback();
                 feedback.setFullName(resultSet.getString("FULL_NAME"));
-                feedback.setFeedbackRecipientId(resultSet.getInt("FEEDBACK_RECIPIENT_ID"));
+                feedback.setRecipientFullName(resultSet.getString("RECIPIENT_FULL_NAME"));
+                feedback.setRecipientEmail(resultSet.getString("RECIPIENT_EMAIL"));
                 feedback.setTopic(resultSet.getString("TOPIC"));
                 feedback.setMessage(resultSet.getString("MESSAGE"));
+                System.out.println(resultSet.toString());
                 feedbackList.add(feedback);
             }
             st.close();
