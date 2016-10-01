@@ -18,6 +18,8 @@ public class SendController {
                         @RequestParam("topic") String topic,
                         @RequestParam("message") String message){
         
+        DataBaseWorker.tableCreate();
+        
         System.out.println(secondName);
         System.out.println(firstName);
         System.out.println(patronymic);
