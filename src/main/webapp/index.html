@@ -10,15 +10,15 @@
         <h5>Форма обратной связи</h5>
         <input type="text" required="" placeholder="Фамилия" name="secondName">
         <input type="text" required="" placeholder="Имя" name="firstName">
-        <input type="text" required="" placeholder="Отчетсво" name="patronymic"><br/><br/>
-        <select size="1" name="recipient">
-            <option selected>Выберите получателя из списка</option>
-            <option>Получатель 1</option>
-            <option>Получатель 2</option>
-            <option>Получатель 3</option>
+        <input type="text" placeholder="Отчество" name="patronymic"><br/><br/>
+        <select required size="1" name="recipient">
+            <option selected disabled value=''>Выберите получателя</option>
+            <option value="0">Получатель 1</option>
+            <option value="1">Получатель 2</option>
+            <option value="2">Получатель 3</option>
         </select><br/><br/>
-        <input type="text" required="" placeholder="Тема" name="topic"><br/><br/>
-        <textarea name="message" placeholder="Текст сообщения" rows="10" cols="30"></textarea><br/>
+        <input type="text" placeholder="Тема" name="topic"><br/><br/>
+        <textarea name="message" required="" placeholder="Текст сообщения" rows="10" cols="30"></textarea><br/>
         <input type="submit" id="button" value="Отправить" name="sendfeedback">
         </form>
         <div id="result"></div>
