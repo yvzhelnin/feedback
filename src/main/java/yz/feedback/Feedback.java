@@ -62,7 +62,7 @@ public class Feedback {
     
     @Override
     public String toString(){
-        return secondName + " "+ firstName + " "+ patronymic + " "
-        + recipient + " "+ topic + " "+ message;
+        return "<tr><td>" + secondName + " "+ firstName + " "+ patronymic + "</td><td>"
+            + recipient + "</td><td>"+ topic + "</td><td>"+ message + "</td></tr>";
     }
 }

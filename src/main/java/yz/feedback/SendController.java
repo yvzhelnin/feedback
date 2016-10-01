@@ -20,6 +20,5 @@ public class SendController {
         
         DataBaseWorker.tableCreate();
         DataBaseWorker.bindData(secondName, firstName, patronymic, recipient, topic, message);
-        DataBaseWorker.getData();
     }
 }

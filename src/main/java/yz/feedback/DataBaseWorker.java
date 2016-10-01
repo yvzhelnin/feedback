@@ -73,8 +73,6 @@ public class DataBaseWorker {
                 feedback.setTopic(resultSet.getString("TOPIC"));
                 feedback.setMessage(resultSet.getString("MESSAGE"));
                 feedbackList.add(feedback);
-                
-       //         System.out.println(feedback.toString());
             }
             st.close();
             con.close();

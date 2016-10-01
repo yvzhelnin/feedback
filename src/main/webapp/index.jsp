@@ -20,7 +20,8 @@
         <textarea name="message" required="" placeholder="Текст сообщения" rows="10" cols="30"></textarea><br/>
         <input type="submit" id="button" value="Отправить" name="sendfeedback">
         </form>
-        <div id="result"></div>
+        <div id="result"></div><br/>
+        <a href="viewfeedback.jsp"><h5>Просмотреть отправленные сообщения</h5></a>
         <script type="text/javascript">
         $("#feedbackform").submit(function(event) {
             event.preventDefault();
