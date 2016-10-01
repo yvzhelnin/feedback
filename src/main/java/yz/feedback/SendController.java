@@ -19,6 +19,7 @@ public class SendController {
                         @RequestParam("message") String message){
         
         DataBaseWorker.tableCreate();
+        DataBaseWorker.bindData(secondName, firstName, patronymic, recipient, topic, message);
         
         System.out.println(secondName);
         System.out.println(firstName);
