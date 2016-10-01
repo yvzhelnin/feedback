@@ -1,14 +1,18 @@
 package yz.feedback;
 
+//класс получателей
 public class Recipient {
     
+    //поля класса
     private int recipientId;
     private String recipientFullName;
     private String recipientEmail;
 
+    //пустой конструктор для создания пустых экземпляров
     public Recipient() {
     }
 
+    //геттеры-сеттеры
     public int getRecipientId() {
         return recipientId;
     }
@@ -33,6 +37,7 @@ public class Recipient {
         this.recipientEmail = recipientEmail;
     }
     
+    //переопределяем toString для вывода в <select> на index.jsp
     @Override
     public String toString(){
         return "<option value=\"" + recipientId + "\">" + recipientFullName + "</option>";

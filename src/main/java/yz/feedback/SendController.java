@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+//REST контроллер, ожидающий данных из формы отправки записи
 @RestController
 public class SendController {
-    
+    /*получаем параметры, передаваемые с помощью AJAX из формы добавления
+    нового сообщения*/
     @RequestMapping(value="send", method=RequestMethod.POST)
     public void sendFeedback(@RequestParam("secondName") String secondName,
                         @RequestParam("firstName") String firstName,
@@ -20,7 +22,9 @@ public class SendController {
                         @RequestParam("topic") String topic,
                         @RequestParam("message") String message){
         
+        //создаём новую таблицу для сообщений (если старая отсутствует)
         DataBaseWorker.tableCreate();
+        //пишем данные в таблицу
         DataBaseWorker.bindFeedback(secondName, firstName, patronymic, recipientId, topic, message);
     }
 }
