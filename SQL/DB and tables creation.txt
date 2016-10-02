@@ -1,0 +1,43 @@
+1. Создание БД и подключение.
+
+Для работы приложения необходима БД на PostgreSQL "Feedback", доступная по
+сокету //localhost:5432. Подключение выполняется под пользователем
+feedbackadmin с паролем 12345, который является владельцем базы.
+
+Настройки подключения можно посмотреть, либо изменить в методе getConnection()
+класса DataBaseWorker.java.
+
+2. Таблицы.
+В работе приложеия используется две таблицы:
+- feedbacks
+- recipients
+
+2.1. Таблица feedbacks.
+Создаётся самим приложением, если не существует в методе tableCreate() класса
+DataBaseWorker.java.
+
+Запрос на создание данной БД (выполнять не требуется):
+CREATE TABLE IF NOT EXISTS FEEDBACKS(
+    FEEDBACK_ID BIGSERIAL,
+    FULL_NAME VARCHAR,
+    FEEDBACK_RECIPIENT_ID INT,
+    TOPIC VARCHAR,
+    MESSAGE VARCHAR
+);
+
+2.2. Таблица recipients.
+Данную таблицу необходимо создать и заполнить в БД вручную.
+
+Создание и наполнение таблицы получателей обратной связи:
+
+create table Recipients(
+    RECIPIENT_ID SERIAL,
+    RECIPIENT_FULL_NAME VARCHAR,
+    RECIPIENT_EMAIL VARCHAR,
+    PRIMARY KEY(RECIPIENT_ID)
+);
+
+INSERT INTO Recipients (RECIPIENT_FULL_NAME,RECIPIENT_EMAIL) values('Иванов Иван Иванович', 'ceo@company.com');
+INSERT INTO Recipients (RECIPIENT_FULL_NAME,RECIPIENT_EMAIL) values('Петров Пётр Петров', 'reclamation@company.com');
+INSERT INTO Recipients (RECIPIENT_FULL_NAME,RECIPIENT_EMAIL) values('Осинцева Инна Игоревна', 'hr@company.com');
+INSERT INTO Recipients (RECIPIENT_FULL_NAME,RECIPIENT_EMAIL) values('Петрова Юлия Геннадьевна', 'adverts@company.com');
