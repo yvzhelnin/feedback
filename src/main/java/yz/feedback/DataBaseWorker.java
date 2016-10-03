@@ -11,9 +11,9 @@ public class DataBaseWorker {
     private static Connection getConnection(){
         try{
             Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/Feedback", "feedbackadmin", "12345");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/feedback", "feedbackadmin", "12345");
         }catch(Exception se){
-            logData("Could not connect to the DB" + se, "error");
+            logData("Could not connect to the DB", "error");
         }
         return null;
     }
@@ -40,7 +40,7 @@ public class DataBaseWorker {
             st.close();
             con.close();
         }catch(Exception se){
-            logData("Could not create new table FEEDBACKS cause the next exception" + se, "error");
+            logData("Could not create new table FEEDBACKS cause the next exception", "error");
         }
     }
     //метод записывает данные, полученный из формы, в таблицу FEEDBACKS
@@ -62,7 +62,7 @@ public class DataBaseWorker {
             st.close();
             con.close();
         }catch(Exception se){
-            logData("Could not write data to table FEEDBACKS cause the next exception" + se, "error");
+            logData("Could not write data to table FEEDBACKS cause the next exception", "error");
         }
     }
     
@@ -102,7 +102,7 @@ public class DataBaseWorker {
             //возвращаем коллекцию
             return feedbackList;
         }catch(Exception se){
-            logData("Could not execute SELECT for the message list output" + se, "error");
+            logData("Could not execute SELECT for the message list output", "error");
         }
         return feedbackList;
     }
@@ -137,7 +137,7 @@ public class DataBaseWorker {
             //возвращаем коллекцию
             return recipientList;
         }catch(Exception se){
-            logData("Could not print the recipients list on the start page" + se, "error");
+            logData("Could not print the recipients list on the start page", "error");
         }
         return recipientList;
     }

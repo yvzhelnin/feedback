@@ -1,8 +1,10 @@
 CREATE USER feedbackadmin WITH password '12345';
-CREATE DATABASE Feedback;
-GRANT ALL PRIVILEGES ON DATABASE Feedback TO feedbackadmin;
+CREATE DATABASE feedback OWNER feedbackadmin ENCODING 'UTF8';
+GRANT ALL PRIVILEGES ON DATABASE feedback TO feedbackadmin;
 
 \connect feedback;
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO feedbackadmin;
 
 SET client_encoding TO 'UTF8';
 
